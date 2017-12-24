@@ -37,9 +37,9 @@
 #include "Horizon/Database/Tests/DBTable/HorizonTestDBTable1.h"
 #include "Horizon/Database/Tests/soci/common-tests.h"
 #include <soci/soci.h>
-//#include <soci/sqlite3/soci-sqlite3.h>
-//#include <string>
-//#include "Runtime/Projects/Public/Interfaces/IPluginManager.h"
+#include <soci/sqlite3/soci-sqlite3.h>
+#include <string>
+#include "Runtime/Projects/Public/Interfaces/IPluginManager.h"
 #if WITH_DEV_AUTOMATION_TESTS
 
 namespace

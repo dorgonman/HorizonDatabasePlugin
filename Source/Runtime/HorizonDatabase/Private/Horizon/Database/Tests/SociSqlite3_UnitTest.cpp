@@ -189,7 +189,7 @@ bool FHorizonSqlite3UseAndVectorInfo::RunTest(const FString& Parameters)
 		std::string name = "john";
 
 		s.exchange(use(name, "name"));
-		s.exchange(into(v));
+		//s.exchange(into(v));
 
 		s.define_and_bind();
 		s.execute(true);
@@ -300,10 +300,10 @@ bool FHorizonSqlite3VectorLongLong::RunTest(const FString& Parameters)
 	v1.push_back(1000000000003LL);
 	v1.push_back(1000000000004LL);
 
-	sql << "insert into soci_test(val) values(:val)", use(v1);
+	//sql << "insert into soci_test(val) values(:val)", use(v1);
 
 	std::vector<long long> v2(10);
-	sql << "select val from soci_test order by val desc", into(v2);
+	//sql << "select val from soci_test order by val desc", into(v2);
 
 
 

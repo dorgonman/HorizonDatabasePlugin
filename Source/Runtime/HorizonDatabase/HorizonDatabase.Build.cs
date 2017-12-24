@@ -57,7 +57,7 @@ public class HorizonDatabase : ModuleRules
 
         PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "UMG" }); //2D
         PrivateDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" }); //Core
-        PrivateDependencyModuleNames.AddRange(new string[] { "soci_core", "soci_empty", "soci_sqlite3" });
+        PublicDependencyModuleNames.AddRange(new string[] { "soci_core", "soci_empty", "soci_sqlite3" });
 
       
 
