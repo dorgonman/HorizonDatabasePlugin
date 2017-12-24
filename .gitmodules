@@ -1,0 +1,3 @@
+[submodule "Source/ThirdParty/LibSOCI/soci"]
+	path = Source/ThirdParty/LibSOCI/soci
+	url = https://github.com/dorgonman/soci.git
