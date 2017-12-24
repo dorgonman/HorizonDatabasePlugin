@@ -1,3 +1,8 @@
+
+// Note: The code in this file are ported from soci
+
+
+
 //
 // Copyright (C) 2004-2008 Maciej Sobczak, Stephen Hutton
 // Distributed under the Boost Software License, Version 1.0.
