@@ -1,0 +1,29 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0.0",
+  "FriendlyName": "HorizonDatabasePlugin",
+  "Description": "HorizonDatabasePlugin",
+  "Category": "Horizon",
+  "CreatedBy": "dorgon",
+  "CreatedByURL": "http://dorgon.horizon-studio.net",
+  "DocsURL": "http://dorgon.horizon-studio.net",
+  "MarketplaceURL": "http://dorgon.horizon-studio.net",
+  "SupportURL": "http://dorgon.horizon-studio.net",
+  "EnabledByDefault": true,
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "Installed": true,
+	"Modules": [
+    {
+      "Name": "HorizonDatabase",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "HorizonDatabaseEditor",
+      "Type": "Editor",
+      "LoadingPhase": "Default"
+    }
+	]
+}

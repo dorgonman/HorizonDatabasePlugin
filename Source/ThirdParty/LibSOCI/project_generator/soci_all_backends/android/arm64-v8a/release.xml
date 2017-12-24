@@ -1,0 +1,17 @@
+<BuildConfig>
+  	<HorizonEngineRoot>../../../</HorizonEngineRoot>
+	<ProjectRoot>../../../thirdparty/libsoci/</ProjectRoot>
+	<ProjectBuildRoot>../../../thirdparty/libsoci/soci/</ProjectBuildRoot>
+	<ProjectBuildArch>arm64-v8a</ProjectBuildArch>
+	<ProjectBuildPlatform>android</ProjectBuildPlatform>
+	<ProjectBuildConfig>Release</ProjectBuildConfig>
+  	<ProjectGeneratedExtraFlag>-DWITH_EXCEPTIONS=ON -DWITH_RTTI=OFF -DSOCI_SHARED=OFF -DSOCI_CXX_C11=ON -DWITH_SQLITE3=ON -DSOCI_EMPTY=ON -DWITH_MYSQL=OFF -DWITH_ORACLE=OFF -DWITH_DB2=OFF -DWITH_FIREBIRD=OFF -DWITH_POSTGRESQL=OFF -DSOCI_TESTS=OFF -DWITH_ODBC=OFF -DSQLITE3_INCLUDE_DIR=../../../../../../../thirdparty/libSqlite3/sqlite3/src/ -DSQLITE3_LIBRARY=../../../../../../../thirdparty/libSqlite3/libs/android/arm64-v8a/Release/libsqlite3Static.a</ProjectGeneratedExtraFlag>
+	<ProjectBuildExtraFlag> </ProjectBuildExtraFlag>
+	<GenerateOnly>False</GenerateOnly>
+
+  	<!-- CMake relate config-->
+  	<CMakeGenerator>Visual Studio 14 2015</CMakeGenerator>
+  	<!-- Android config-->
+	<AndroidTargetAPI>21</AndroidTargetAPI>
+	<AndroidMinAPI>21</AndroidMinAPI>
+</BuildConfig>
