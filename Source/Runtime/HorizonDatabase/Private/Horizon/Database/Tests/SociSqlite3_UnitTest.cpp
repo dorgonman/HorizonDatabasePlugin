@@ -80,7 +80,7 @@ bool FHorizonSqlite3RowID::RunTest(const FString& Parameters)
 	TestEqual(TEXT("Name should equal to John"), name, std::string("John"));
 
 	sql << "drop table test1";
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 
@@ -143,7 +143,7 @@ bool FHorizonSqlite3Blob::RunTest(const FString& Parameters)
 
 	}
 
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 
@@ -196,7 +196,7 @@ bool FHorizonSqlite3UseAndVectorInfo::RunTest(const FString& Parameters)
 		TestEqual(TEXT("v.size() == 2"), (int)v.size(), 2);
 	}
 
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 
@@ -246,7 +246,7 @@ bool FHorizonSqlite3Sequence::RunTest(const FString& Parameters)
 		TestEqual(TEXT("r1.get<std::string>(0) == \"soci_test\""), r1.get<std::string>(0), std::string("soci_test"));
 		TestEqual(TEXT("r1.get<std::string>(1) == \"2\""), r1.get<std::string>(1), std::string("2"));
 	}
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 
@@ -277,7 +277,7 @@ bool FHorizonSqlite3LongLong::RunTest(const FString& Parameters)
 	long long v2 = 0LL;
 	sql << "select val from soci_test", into(v2);
 	TestEqual(TEXT("v2 == v1"), v2, v1);
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 
@@ -315,7 +315,7 @@ bool FHorizonSqlite3VectorLongLong::RunTest(const FString& Parameters)
 	TestEqual(TEXT("v2[2] == 1000000000002LL"), v2[2], 1000000000002LL);
 	TestEqual(TEXT("v2[3] == 1000000000001LL"), v2[3], 1000000000001LL);
 	TestEqual(TEXT("v2[4] == 1000000000000LL"), v2[4], 1000000000000LL);
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 
@@ -347,7 +347,7 @@ bool FHorizonSqlite3LastInsert::RunTest(const FString& Parameters)
 	TestEqual(TEXT("result == true"), result, true);
 	TestEqual(TEXT("id == 42"), id, (long)42);
 
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 

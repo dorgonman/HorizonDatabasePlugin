@@ -34,9 +34,10 @@ using UnrealBuildTool;
 public class HorizonDatabaseEditor : ModuleRules
 {
 
-    public HorizonDatabaseEditor(TargetInfo Target)
-	{
-
+    public HorizonDatabaseEditor(ReadOnlyTargetRules Target)
+        : base(Target)
+    {
+        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PublicIncludePaths.AddRange(
 			new string[] {
                 "Editor/HorizonDatabaseEditor/Public",
@@ -52,7 +53,7 @@ public class HorizonDatabaseEditor : ModuleRules
 			}
 			);
 
-        PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "UMG", "Paper2D" }); //2D
+        PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore", "UMG" }); //2D
         PrivateDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" }); //Core
 
   		PrivateDependencyModuleNames.AddRange(new string[] { "UnrealEd", "Projects" });

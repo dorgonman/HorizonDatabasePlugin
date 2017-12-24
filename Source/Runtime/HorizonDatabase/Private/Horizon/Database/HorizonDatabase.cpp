@@ -1,8 +1,9 @@
 // Created by dorgon, All Rights Reserved.
 // email: dorgonman@hotmail.com
 // blog: dorgon.horizon-studio.net
+#include "HorizonDatabase.h"
 #include "HorizonDatabasePrivatePCH.h"
-#include "Horizon/Database/HorizonDatabase.h"
+
 #include "soci/soci.h"
 #include "soci/empty/soci-empty.h"
 #include "soci/sqlite3/soci-sqlite3.h"

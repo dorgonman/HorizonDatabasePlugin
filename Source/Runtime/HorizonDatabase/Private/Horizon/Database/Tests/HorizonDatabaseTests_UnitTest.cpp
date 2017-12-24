@@ -142,14 +142,14 @@ static void SimpleTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase
 
 static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* pDB) 
 {
-	pTestCase->AddLogItem("ORMTestImplement start");
+	pTestCase->AddInfo("ORMTestImplement start");
 	auto pStruct = FHorizonTestDBTable1::StaticStruct();
 
 
 	//============================create database==============================
 	pDB->DropTable(FHorizonTestDBTable1::StaticStruct()->GetName());
 	UHorizonTestDBTable1FunctionLibrary::CreateTable(pDB);
-	pTestCase->AddLogItem("ORMTestImplement CreateTable");
+	pTestCase->AddInfo("ORMTestImplement CreateTable");
 	//============================test data===================================
 	FHorizonTestDBTable1BulkData bulkData;
 	FHorizonTestDBTable1 a0;
@@ -166,7 +166,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 	UHorizonTestDBTable1FunctionLibrary::AddBulkData(bulkData, a1);
 	//auto insertSQL = AHorizonDatabase::GetInsertSQLUseStmt(pStruct, false);
 
-	pTestCase->AddLogItem("ORMTestImplement2 start insert row");
+	pTestCase->AddInfo("ORMTestImplement2 start insert row");
 	//============================insert row==================================
 
 	try {
@@ -175,7 +175,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 	catch (std::exception& e) {
 		pTestCase->AddError(FString::Printf(TEXT("insertSQL exception: %s"), *FString(e.what())));
 	}
-	pTestCase->AddLogItem("end insert row");
+	pTestCase->AddInfo("end insert row");
 	//============================select single row==================================
 	{
 		auto data0 = UHorizonTestDBTable1FunctionLibrary::QueryData(pDB, "WHERE Id = 0");
@@ -184,7 +184,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 		pTestCase->TestEqual(TEXT("data1 == a1"), data1, a1);
 	}
 	//=======================================================================
-	pTestCase->AddLogItem("end select single row");
+	pTestCase->AddInfo("end select single row");
 
 	//============================select multi row==================================
 	{
@@ -195,7 +195,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 	}
 
 
-	pTestCase->AddLogItem("end select multi row");
+	pTestCase->AddInfo("end select multi row");
 	//============================select single tuple: C++ only=======================================
 
 	{
@@ -207,7 +207,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 		pTestCase->TestEqual(TEXT("TestString should equal to a0.TestString"), std::get<TestString>(dataTuple), a0.TestString);
 	}
 
-	pTestCase->AddLogItem("end select single tuple");
+	pTestCase->AddInfo("end select single tuple");
 	//============================select multi tuple: C++ only=======================================
 
 	{
@@ -224,7 +224,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 
 	}
 
-	pTestCase->AddLogItem("end select multi tuple");
+	pTestCase->AddInfo("end select multi tuple");
 	//=============================UpdateData===============================================
 
 	{
@@ -233,7 +233,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 		pTestCase->TestNotEqual(TEXT("data0 != a0"), data0, a0);
 	}
 
-	pTestCase->AddLogItem("end UpdateData");
+	pTestCase->AddInfo("end UpdateData");
 	//=================================DeleteData======================================
 
 	{
@@ -247,7 +247,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 		pTestCase->TestEqual(TEXT("rowSet.Num() == 0"), rowSet.Num(), 0);
 	}
 
-	pTestCase->AddLogItem("ORMTestImplement2 logitem");
+	pTestCase->AddInfo("ORMTestImplement2 logitem");
 	{
 		try
 		{
@@ -264,7 +264,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 			pTestCase->AddError(FString::Printf(TEXT("insertSQL exception: %s"), *FString(e.what())));
 		}
 	}
-	pTestCase->AddLogItem("end DeleteData");
+	pTestCase->AddInfo("end DeleteData");
 	//=================================TruncateTable======================================
 	{
 		{ //insert test data
@@ -277,7 +277,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 		pTestCase->TestEqual(TEXT("rowSet.Num() == 0"), rowSet.Num(), 0);
 	}
 
-	pTestCase->AddLogItem("end TruncateTable");
+	pTestCase->AddInfo("end TruncateTable");
 	//================================DropTable============================================
 	{
 		try
@@ -290,7 +290,7 @@ static void ORMTestImplement(FAutomationTestBase* pTestCase, AHorizonDatabase* p
 			pTestCase->AddError(FString::Printf(TEXT("drop table exception: %s"), *FString(e.what())));
 		}
 	}
-	pTestCase->AddLogItem("end DropTable");
+	pTestCase->AddInfo("end DropTable");
 }
 
 
@@ -303,7 +303,7 @@ bool FHorizonDatabaseSqlite3SimpleTest::RunTest(const FString& Parameters)
 	bool bResult = true;
 	RunTestHorizonDBImplement(this, &SimpleTestImplement);
 
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 	}
@@ -322,7 +322,7 @@ bool FHorizonDatabaseSqlite3ORMTest::RunTest(const FString& Parameters)
 	bool bResult = true;
 	RunTestHorizonDBImplement(this, &ORMTestImplement);
 
-	if (ExecutionInfo.Errors.Num() > 0)
+	if (ExecutionInfo.GetErrorTotal() > 0)
 	{
 		bResult = false;
 	}

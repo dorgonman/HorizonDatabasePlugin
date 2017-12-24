@@ -27,9 +27,9 @@
 * DEALINGS IN THE SOFTWARE.
 **********************************************************/
 
+#include "HorizonDatabaseEditorModule.h"
 #include "HorizonDatabaseEditorPrivatePCH.h"
 
-#include "HorizonDatabaseEditorModule.h"
 
 
 
