@@ -1,3 +1,9 @@
 [submodule "Source/ThirdParty/LibSOCI/soci"]
 	path = Source/ThirdParty/LibSOCI/soci
 	url = https://github.com/dorgonman/soci.git
+[submodule "Source/ThirdParty/LibSOCI"]
+	path = Source/ThirdParty/LibSOCI
+	url = https://github.com/dorgonman/LibSOCI.git
+[submodule "Source/ThirdParty/LibSqlite3"]
+	path = Source/ThirdParty/LibSqlite3
+	url = https://github.com/dorgonman/LibSqlite3.git
