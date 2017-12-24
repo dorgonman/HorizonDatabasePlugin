@@ -43,6 +43,7 @@ public class HorizonDatabase : ModuleRules
                 "Runtime/HorizonDatabase/Public",
                 ModuleLibSociPublicIncludePath,
                 ModuleLibSqlite3PublicIncludePath,
+                ModuleLibSociConfigIncludePath
 				// ... add public include paths required here ...
 			}
 			);
@@ -81,13 +82,34 @@ public class HorizonDatabase : ModuleRules
             return Path.Combine(ModuleCSFileDirectory);
         }
     }
+
+
+    private string ModuleLibSoci
+    {
+        get
+        {
+            return Path.GetFullPath(Path.Combine(ModuleRootPath, "..", "..", "ThirdParty", "LibSoci"));
+        }
+    }
+
+    private string ModuleLibSociConfigIncludePath
+    {
+        get
+        {
+            return Path.GetFullPath(Path.Combine(ModuleRootPath, "..", "..", "ThirdParty", "LibSoci", "Include"));
+        }
+    }
+
     private string ModuleLibSociPublicIncludePath
     {
         get
         {
-            return Path.GetFullPath(Path.Combine(ModuleRootPath, "..", "..", "ThirdParty", "LibSoci", "soci", "include"));
+            return Path.GetFullPath(Path.Combine(ModuleRootPath, ModuleLibSoci, "soci", "include"));
         }
     }
+
+
+
 
     private string ModuleLibSqlite3PublicIncludePath
     {
