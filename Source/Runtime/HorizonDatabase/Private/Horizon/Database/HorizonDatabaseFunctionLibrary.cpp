@@ -70,7 +70,7 @@ FString UHorizonDatabaseFunctionLibrary::GetBaseDirectory()
 		baseDirectory = TEXT("");
 	}
 #else
-	baseDirectory = FPaths::GamePersistentDownloadDir();
+	baseDirectory = FPaths::ProjectPersistentDownloadDir();
 #endif
 	FPaths::NormalizeDirectoryName(baseDirectory);
 	if (FPaths::IsRelative(baseDirectory)) {
